@@ -40,8 +40,8 @@ Commands:
 /referral - Get referral link
 """
     "/rewards - View your referral rewards\n"
-"
-        "`/balance` – View total saved
+"  "Welcome to SOFTCOINNET
+"`/balance` – View total saved
 "
         "`/refer` – Get your referral link
 "
