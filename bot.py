@@ -40,14 +40,6 @@ Commands:
 /referral - Get referral link
 """
     "/rewards - View your referral rewards\n"
-        message = """Welcome to SOFTCOINNET!
-Here are your commands:
-/start – Start the bot
-/save <amount> – Log your savings
-/balance – Check your total saved
-/refer – Get your referral link
-/rewards – View referral rewards
-"""
 "
         "`/balance` – View total saved
 "
