@@ -38,7 +38,15 @@ def start(message):
         "Welcome to *SOFTCOINNET Savings Bot!*"
 
         "Hello"
-        "Commands:
+        message = """Welcome to SOFTCOINNET Savings Bot!
+
+Commands:
+/start - Start the bot
+/help - Help info
+/save - Save money
+/balance - Check your balance
+/referral - Get referral link
+"""
 "
         "`/save <amount>` – Log your savings
 "
