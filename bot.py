@@ -35,7 +35,7 @@ def start(message):
         }
         save_data()
     text = (
-        "Welcome to *SOFTCOINNET Savings Bot*!
+        "Welcome to *SOFTCOINNET Savings Bot!*"
 
 "
         "Commands:
