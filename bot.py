@@ -38,22 +38,16 @@ Commands:
 /save - Save money
 /balance - Check your balance
 /referral - Get referral link
-"""
     "/rewards - View your referral rewards\n"
 "  "Welcome to SOFTCOINNET
 "`/balance` – View total saved
-"
         "`/refer` – Get your referral link
-"
         "`/rewards` – View your referral reward"
         "*Wallet Addresses:*
-"
        f"BTC: `{wallets['BTC']}`
-"
         f"USDT (TRC20): `{wallets['USDT (TRC20)']}`"
     )
     bot.send_message(user_id, text, parse_mode="Markdown")
-
 @bot.message_handler(commands=['save'])
 def save(message):
     try:
