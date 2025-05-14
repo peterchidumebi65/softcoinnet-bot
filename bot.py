@@ -48,7 +48,6 @@ Here are your commands:
 /refer – Get your referral link
 /rewards – View referral rewards
 """
-await message.reply(message) "`/save <amount>` – Log your savings
 "
         "`/balance` – View total saved
 "
