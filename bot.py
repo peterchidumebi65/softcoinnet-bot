@@ -2,27 +2,21 @@
 import telebot
 import json
 import os
-
 TOKEN = 'AAHXyZ7Odiz2fvs5fq-7ZFR-gCyTRrDGAho'
 bot = telebot.TeleBot(TOKEN)
-
 DATA_FILE = 'data.json'
-
 if os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'r') as f:
         users = json.load(f)
 else:
     users = {}
-
 def save_data():
     with open(DATA_FILE, 'w') as f:
         json.dump(users, f, indent=4)
-
 wallets = {
     "BTC": "bc1qg7amlpgxlxz3hvynl57l3dym37cyect0vhxhn8",
     "USDT (TRC20)": "TY9MUw3gPZBnHmCymaeho9AdeowfnvCcPg"
 }
-
 @bot.message_handler(commands=['start'])
 def start(message):
     user_id = str(message.from_user.id)
@@ -36,10 +30,8 @@ def start(message):
         save_data()
     text = (
         "Welcome to *SOFTCOINNET Savings Bot!*"
-
         "Hello"
         message = """Welcome to SOFTCOINNET Savings Bot!
-
 Commands:
 /start - Start the bot
 /help - Help info
@@ -48,18 +40,24 @@ Commands:
 /referral - Get referral link
 """
     "/rewards - View your referral rewards\n"
-        "`/save <amount>` – Log your savings
+        message = """Welcome to SOFTCOINNET!
+Here are your commands:
+/start – Start the bot
+/save <amount> – Log your savings
+/balance – Check your total saved
+/refer – Get your referral link
+/rewards – View referral rewards
+"""
+await message.reply(message) "`/save <amount>` – Log your savings
 "
         "`/balance` – View total saved
 "
         "`/refer` – Get your referral link
 "
-        "`/rewards` – View your referral rewards
-
-"
+        "`/rewards` – View your referral reward"
         "*Wallet Addresses:*
 "
-        f"BTC: `{wallets['BTC']}`
+       f"BTC: `{wallets['BTC']}`
 "
         f"USDT (TRC20): `{wallets['USDT (TRC20)']}`"
     )
@@ -75,13 +73,11 @@ def save(message):
         bot.send_message(user_id, f"₦{amount} saved! Total: ₦{users[user_id]['balance']}")
     except:
         bot.send_message(message.chat.id, "Usage: /save 500")
-
 @bot.message_handler(commands=['balance'])
 def balance(message):
     user_id = str(message.from_user.id)
     total = users.get(user_id, {}).get('balance', 0)
     bot.send_message(user_id, f"Your savings balance: ₦{total}")
-
 @bot.message_handler(commands=['refer'])
 def refer(message):
     user_id = str(message.from_user.id)
@@ -89,7 +85,6 @@ def refer(message):
     link = f"https://t.me/SOFTCOINNETBot?start={ref_code}"
     bot.send_message(user_id, f"Invite friends with this link:
 {link}")
-
 @bot.message_handler(commands=['rewards'])
 def rewards(message):
     user_id = str(message.from_user.id)
@@ -97,7 +92,6 @@ def rewards(message):
     count = len(users[user_id]['referrals'])
     bot.send_message(user_id, f"Referrals: {count}
 Reward earned: ₦{reward}")
-
 @bot.message_handler(func=lambda m: m.text.startswith("/start ref"))
 def handle_referral(message):
     user_id = str(message.from_user.id)
@@ -109,5 +103,4 @@ def handle_referral(message):
         save_data()
         bot.send_message(int(referrer), "You earned ₦100 for a new referral!")
     start(message)
-
 bot.polling()
