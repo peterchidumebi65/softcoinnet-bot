@@ -47,7 +47,7 @@ Commands:
 /balance - Check your balance
 /referral - Get referral link
 """
-"
+    "/rewards - View your referral rewards\n"
         "`/save <amount>` – Log your savings
 "
         "`/balance` – View total saved
