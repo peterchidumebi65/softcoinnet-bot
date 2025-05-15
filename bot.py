@@ -14,7 +14,7 @@ def send_welcome(message):
     if user_id not in users:
         users[user_id] = {'balance': 0, 'referrals': []}
     msg = (
-        "Welcome to SOFTCOINNET Savings Bot!
+        "Welcome to SOFTCOINNET Savings Bot!"
 
 "
         "Commands:
